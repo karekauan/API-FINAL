@@ -4,7 +4,7 @@ const moment = require('moment')
 //Constante que usa o código feito no arquivo conexao.js 
 const conexao = require('../infraestrutura/conexao')
 
-class Atendimento {
+class aluno {
 
     
     //Método que adiciona as informações no mysql
@@ -33,7 +33,7 @@ class Atendimento {
     //Método que lista todos os itens da Database
     lista(res) {
         //Comando mysql que mostra todos os itens da Database
-        const sql = 'SELECT * FROM Aluno'
+        const sql = 'SELECT * FROM aluno'
 
         conexao.query(sql, (erro, resultados) => {
             //Se der erro o site retorna o erro
@@ -47,9 +47,9 @@ class Atendimento {
     }
 
     //Método que mostra um item específico da Database
-    buscaPorId(id, res) {
+    buscaId(id, res) {
         //Comando mysql que mostra o item específico da Database
-        const sql = `SELECT * FROM Aluno WHERE id=${id}`
+        const sql = `SELECT * FROM aluno WHERE cod_aluno=${id}`
 
         conexao.query(sql, (erro, resultados) => {
             const atendimento = resultados[0]
@@ -65,8 +65,13 @@ class Atendimento {
 
     //Método que altera um item específico da Database
     altera(id, valores, res) {
+        //Formata a data
+        if(valores.data_nasc) {
+            valores.data_nasc = moment(valores.data_nasc, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
+        } 
+
         //Comando mysql que atualiza um item específico da Database
-        const sql = 'UPDATE Atendimentos SET ? WHERE id=?'
+        const sql = 'UPDATE aluno SET ? WHERE cod_aluno=?'
 
         conexao.query(sql, [valores, id], (erro, resultados) => {
             //Se der erro o site retorna o erro
@@ -81,7 +86,7 @@ class Atendimento {
     //Método que deleta um item específico da Database
     deleta(id, res) {
         //Comando mysql que deleta um item específico da Database
-        const sql = 'DELETE FROM Atendimentos WHERE id=?'
+        const sql = 'DELETE FROM aluno WHERE cod_aluno=?'
 
         conexao.query(sql, id, (erro, resultados) => {
             //Se der erro o site retorna o erro
