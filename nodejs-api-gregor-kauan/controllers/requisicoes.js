@@ -1,38 +1,38 @@
 //Gregor Umbelino - 3º INF
 //Constante que usa o código feito no arquivo atendimentos.js em models
-const Atendimento = require('../models/atendimentos')
+const aluno = require('../models/aluno')
 
 //Exporta o código
 module.exports = app => {
     //Uma requisição GET para localhost:3000/atendimentos 
     //Retorna a lista de todos os itens na Database
-    app.get('/atendimentos', (req, res) => {
-        Atendimento.lista(res)
+    app.get('/aluno', (req, res) => {
+        aluno.lista(res)
     })
 
     //Uma requisição GET para localhost:3000/atendimentos/{id do item} 
     //Retorna uma linha específica da Database
-    app.get('/atendimentos/:id', (req, res) => {
-        const id = parseInt(req.params.id)
+    app.get('/aluno/:id', (req, res) => {
+        const cod_aluno = parseInt(req.params.cod_aluno)
 
-        Atendimento.buscaPorId(id, res)
+        aluno.buscaId(cod_aluno, res)
     })
 
     //Uma requisição POST para localhost:3000/atendimentos
     //Cadastra um novo item na Database
-    app.post('/atendimentos', (req, res) => {
-       const atendimento = req.body
+    app.post('/aluno', (req, res) => {
+       const aluno = req.body
 
-        Atendimento.adiciona(atendimento, res)
+       aluno.adiciona(aluno, res)
     }) 
 
     //Uma requisição PATCH para localhost:3000/atendimentos/{id do item}
     //Atualiza as informações de um dos itens da Database
-    app.patch('/atendimentos/:id', (req, res) => {
-        const id = parseInt(req.params.id)
+    app.patch('/aluno/:id', (req, res) => {
+        const cod_aluno = parseInt(req.params.cod_aluno)
         const valores = req.body
 
-        Atendimento.altera(id, valores, res)
+        Atendimento.altera(cod_aluno, valores, res)
     })
 
     //Uma requisição DELETE para localhost:3000/atendimentos/{id do item}
