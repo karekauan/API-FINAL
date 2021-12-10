@@ -8,7 +8,11 @@ class aluno {
 
     
     //Método que adiciona as informações no mysql
-    adiciona(atendimento, res) {
+    adiciona(aluno, res) {
+        //Formata a data
+        if(aluno.data_nasc) {
+            aluno.data_nasc = moment(aluno.data_nasc, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
+        }
         //Se existirem erros o site retorna os erros
         if(existemErros) {
             res.status(400).json(erros)
@@ -32,6 +36,7 @@ class aluno {
 
     //Método que lista todos os itens da Database
     lista(res) {
+        
         //Comando mysql que mostra todos os itens da Database
         const sql = 'SELECT * FROM aluno'
 
