@@ -38,5 +38,3 @@ class Tabelas {
 
 //Exporta o código
 module.exports = new Tabelas
-
-//
