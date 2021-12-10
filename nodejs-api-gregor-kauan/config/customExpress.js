@@ -11,7 +11,9 @@ const cors = require('cors')
 module.exports = () => {
   //Usa a lib express
   const app = express()
- 
+  //Usa a lib cors.
+  app.use(cors())
+
   //Usa a lib bodyparser
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
@@ -19,11 +21,8 @@ module.exports = () => {
   //Usa a lib consign.
   consign()
     .include('controllers')
-   .into(app)
+    .into(app)
 
-  //Usa a lib cors.
-  app.use(cors())
- 
   //Retorna o "site"
   return app
 }
