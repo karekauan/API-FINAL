@@ -12,7 +12,7 @@ class Tabelas {
 
     criarAluno() {
         //Se a tabela de alunos não existir no mysql, ela será criada
-        const sql = `CREATE TABLE IF NOT EXISTS Aluno (cod_aluno int NOT NULL AUTO_INCREMENT,
+        const sql = `CREATE TABLE IF NOT EXISTS aluno (cod_aluno int NOT NULL AUTO_INCREMENT,
             nome_aluno varchar(50) NOT NULL,
             data_nasc datetime NOT NULL,
             telefone_aluno varchar(20),
