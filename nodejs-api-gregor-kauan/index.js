@@ -28,4 +28,3 @@ conexao.connect(erro => {
     }
 })
 
-//precisa do cors body-parser consign express moment
