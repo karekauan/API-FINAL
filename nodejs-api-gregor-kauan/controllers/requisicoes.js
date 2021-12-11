@@ -1,13 +1,13 @@
 //Gregor Umbelino - 3º INF
 //Constante que usa o código feito no arquivo atendimentos.js em models
-const aluno = require('../models/aluno')
+const Aluno = require('../models/aluno')
 
 //Exporta o código
 module.exports = app => {
     //Uma requisição GET para localhost:3000/aluno 
     //Retorna a lista de todos os itens na Database
     app.get('/aluno', (req, res) => {
-        aluno.lista(res)
+        Aluno.lista(res)
     })
 
     //Uma requisição GET para localhost:3000/aluno/{id} 
@@ -15,7 +15,7 @@ module.exports = app => {
     app.get('/aluno/:id', (req, res) => {
         const cod_aluno = parseInt(req.params.cod_aluno)
 
-        aluno.buscaId(cod_aluno, res)
+        Aluno.buscaId(cod_aluno, res)
     })
 
     //Uma requisição POST para localhost:3000/aluno
@@ -23,7 +23,7 @@ module.exports = app => {
     app.post('/aluno', (req, res) => {
        const aluno = req.body
 
-       aluno.adiciona(aluno, res)
+       Aluno.adiciona(aluno, res)
     }) 
 
     //Uma requisição PATCH para localhost:3000/aluno/{id}
@@ -32,7 +32,7 @@ module.exports = app => {
         const cod_aluno = parseInt(req.params.cod_aluno)
         const valores = req.body
 
-        aluno.altera(cod_aluno, valores, res)
+        Aluno.altera(cod_aluno, valores, res)
     })
 
     //Uma requisição DELETE para localhost:3000/aluno/{id}
@@ -40,6 +40,6 @@ module.exports = app => {
     app.delete('/aluno/:id', (req, res) => {
         const id = parseInt(req.params.id)
 
-        aluno.deleta(id, res)
+        Aluno.deleta(id, res)
     })
 }

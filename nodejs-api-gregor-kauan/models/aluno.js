@@ -4,7 +4,7 @@ const moment = require('moment')
 //Constante que usa o código feito no arquivo conexao.js 
 const conexao = require('../infraestrutura/conexao')
 
-class aluno {
+class Aluno {
 
     
     //Método que adiciona as informações no mysql
@@ -102,4 +102,4 @@ class aluno {
 }
 
 //Exporta o código
-module.exports = new aluno
+module.exports = new Aluno
