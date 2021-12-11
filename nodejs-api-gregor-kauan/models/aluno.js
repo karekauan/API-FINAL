@@ -12,22 +12,18 @@ class aluno {
         //Formata a data
         if(aluno.data_nasc) {
             aluno.data_nasc = moment(aluno.data_nasc, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
-        }
-        //Se existirem erros o site retorna os erros
-        if(existemErros) {
-            res.status(400).json(erros)
         //Se der certo o método prossegue a função dele
         } else {
             //Comando mysql que adiciona os itens na Database
-            const sql = 'INSERT INTO Atendimentos SET ?'
+            const sql = 'INSERT INTO aluno SET ?'
     
-            conexao.query(sql, atendimentoDatado, (erro, resultados) => {
+            conexao.query(sql, aluno, (erro, resultados) => {
                 if(erro) {
                     //Se existirem erros o site retorna os erros
                     res.status(400).json(erro)
                 } else {
                     //Se der certo o site retorna o resultado do método
-                    res.status(201).json(atendimento)
+                    res.status(201).json(aluno)
                 }
             })
         }
@@ -57,13 +53,13 @@ class aluno {
         const sql = `SELECT * FROM aluno WHERE cod_aluno=${id}`
 
         conexao.query(sql, (erro, resultados) => {
-            const atendimento = resultados[0]
+            const aluno = resultados[0]
             //Se der erro o site retorna o erro
             if(erro) {
                 res.status(400).json(erro)
             //Se der certo o site retorna o resultado do método
             } else {
-                res.status(200).json(atendimento)
+                res.status(200).json(aluno)
             }
         })
     }
@@ -106,4 +102,4 @@ class aluno {
 }
 
 //Exporta o código
-module.exports = new Atendimento
+module.exports = new aluno
