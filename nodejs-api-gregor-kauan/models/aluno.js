@@ -23,6 +23,7 @@ class Aluno {
                 res.status(400).json(erro)
             } else {
                 //Se der certo o site retorna o resultado do método
+                console.log(aluno)
                 res.status(201).json(aluno)
             }
         }) 

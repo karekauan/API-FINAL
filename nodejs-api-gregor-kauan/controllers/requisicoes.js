@@ -13,7 +13,7 @@ module.exports = app => {
     //Uma requisição GET para localhost:3000/aluno/{id} 
     //Retorna uma linha específica da Database
     app.get('/aluno/:id', (req, res) => {
-        const cod_aluno = parseInt(req.params.cod_aluno)
+        const cod_aluno = parseInt(req.params.id)
 
         Aluno.buscaId(cod_aluno, res)
     })
@@ -29,7 +29,7 @@ module.exports = app => {
     //Uma requisição PATCH para localhost:3000/aluno/{id}
     //Atualiza as informações de um dos itens da Database
     app.patch('/aluno/:id', (req, res) => {
-        const cod_aluno = parseInt(req.params.cod_aluno)
+        const cod_aluno = parseInt(req.params.id)
         const valores = req.body
 
         Aluno.altera(cod_aluno, valores, res)
