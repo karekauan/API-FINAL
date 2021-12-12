@@ -1,7 +1,7 @@
 //Gregor Umbelino && Kauan Costa
 //3º INF
 
-//Faz a conexão com o mysql
+//Constante que recebe a lib mysql
 const mysql = require('mysql')
 
 //Recebe os dados para fazer a conexão

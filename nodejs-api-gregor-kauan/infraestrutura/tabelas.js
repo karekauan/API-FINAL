@@ -11,17 +11,6 @@ class Tabelas {
     }
 
     criarAluno() {
-        //Cria a database se ela não existir 
-        this.conexao.query('CREATE DATABASE IF NOT EXISTS aluno', erro => {
-            //Se der erro, o erro será mostrado no console
-            if(erro) {
-                console.log(erro)
-
-            //Se der certo, o console avisará que deu certo
-            } else {
-                console.log('DB Aluno criada com sucesso')
-            }
-        })
 
         //Se a tabela de alunos não existir no mysql, ela será criada
         const sql = `CREATE TABLE IF NOT EXISTS aluno (cod_aluno int NOT NULL AUTO_INCREMENT,

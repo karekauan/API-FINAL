@@ -1,5 +1,5 @@
 //Gregor Umbelino - 3º INF
-//Constante que usa o código feito no arquivo atendimentos.js em models
+//Constante que usa o código feito no arquivo aluno.js em models
 const Aluno = require('../models/aluno')
 
 //Exporta o código
