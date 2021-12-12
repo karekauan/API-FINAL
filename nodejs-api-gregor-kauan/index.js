@@ -8,7 +8,7 @@ const conexao = require('./infraestrutura/conexao')
 //Constante que usa o código feito no arquivo tabelas.js
 const Tabelas = require('./infraestrutura/tabelas')
 
-//Hosteia o servidor local que o faz a API funcionar
+//Estabelece o servidor local que o faz a API funcionar
 conexao.connect(erro => {
     //Se der erro, o console mostra o erro
     if(erro) {
@@ -16,7 +16,7 @@ conexao.connect(erro => {
     //Se tudo funcionar ele avisa no console
     //Cria a tabela do sql se ela não existir ainda
     //Aplica o código usado no arquivo customExpress.js
-    //Hosteia o server na porta escolhida 
+    //Estabelece a aplicação na porta escolhida 
     } else {
         console.log('conectado com sucesso')
         
