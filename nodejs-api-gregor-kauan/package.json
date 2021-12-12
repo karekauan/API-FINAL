@@ -4,19 +4,18 @@
   "description": "API",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karekauan/API-FINAL.git#main"
+    "url": "git+https://github.com/karekauan/API-FINAL.git"
   },
   "author": "Gregor U. & Kauan C.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/karekauan/API-FINAL/issues"
   },
-  "homepage": "https://github.com/karekauan/API-FINAL/tree/main#readme",
+  "homepage": "https://github.com/karekauan/API-FINAL#readme",
   "dependencies": {
     "body-parser": "^1.19.1",
     "consign": "^0.1.6",
@@ -24,8 +23,5 @@
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "mysql": "^2.18.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
   }
 }
