@@ -13,21 +13,19 @@ class Aluno {
         if(aluno.data_nasc) {
             aluno.data_nasc = moment(aluno.data_nasc, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
         //Se der certo o método prossegue a função dele
-        } else {
-            //Comando mysql que adiciona os itens na Database
-            const sql = 'INSERT INTO aluno SET ?'
-    
-            conexao.query(sql, aluno, (erro, resultados) => {
-                if(erro) {
-                    //Se existirem erros o site retorna os erros
-                    res.status(400).json(erro)
-                } else {
-                    //Se der certo o site retorna o resultado do método
-                    res.status(201).json(aluno)
-                }
-            })
         }
-       
+        //Comando mysql que adiciona os itens na Database
+        const sql = 'INSERT INTO aluno SET ?'
+    
+        conexao.query(sql, aluno, (erro, resultados) => {
+            if(erro) {
+                //Se existirem erros o site retorna os erros
+                res.status(400).json(erro)
+            } else {
+                //Se der certo o site retorna o resultado do método
+                res.status(201).json(aluno)
+            }
+        }) 
     }
 
     //Método que lista todos os itens da Database
